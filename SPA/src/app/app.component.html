@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <h5>
+    <span id="mat-toolbar-h5-span">{{ title }}</span>
+  </h5>
+</mat-toolbar>
+
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Add a new to-do</mat-label>
+        <input matInput [(ngModel)]="newTodoTitle" />
+        <button mat-icon-button (click)="addTodo()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+  <app-todo-list
+    [todos]="todos"
+    (toggle)="toggleComplete($event)"
+    (delete)="deleteTodo($event)"
+  ></app-todo-list>
+</div>
+
+<app-footer></app-footer>

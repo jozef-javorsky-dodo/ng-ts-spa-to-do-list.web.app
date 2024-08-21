@@ -1,0 +1,12 @@
+<mat-list>
+  <mat-list-item *ngFor="let todo of todos">
+    <mat-checkbox [checked]="todo.completed" (change)="onToggle(todo)">
+      <span [style.textDecoration]="todo.completed ? 'line-through' : 'none'"
+        ><b>{{ todo.title }}</b></span
+      >
+    </mat-checkbox>
+    <button mat-icon-button (click)="onDelete(todo)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-list>
